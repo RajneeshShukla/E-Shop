@@ -13,64 +13,70 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	<title>E-Shop - ${title}</title>
-	
-	<script type="text/javascript">
-		window.menu = '${title}';
-	</script>
-	
-	<!-- Bootstrap Core CSS -->
-	<link href="${css}/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- Custom CSS -->
-	<link href="${css}/myapp.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>E-Shop - ${title}</title>
+
+<script type="text/javascript">
+	window.menu = '${title}';
+</script>
+
+<!-- Bootstrap Core CSS -->
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
 
 <body>
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
 
-	<!--Home Page Content -->
-	<c:if test="${userClickHome == true}">
-		<%@include file="home.jsp"%>
-	</c:if>
-	
-	<!-- About Page Content load here is about click -->
-	<c:if test="${userClickAbout == true}">
-		<%@include file="about.jsp"%>
-	</c:if>
-	
-	<!-- Product list click here if product menu click -->
-	<c:if test="${userClickProductList == true}">
-		<%@include file="productsList.jsp"%>
-	</c:if>
-	
-	<!-- Contact Page load here if contact menu is clicked  -->
-	<c:if test="${userClickContact == true}">
-		<%@include file="contact.jsp"%>
-	</c:if>
-	
-	
-	<!-- Footer comes here -->
-	<%@include file="./shared/footer.jsp"%>
+	<div class="wrapper">
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
 
-	<!-- /.container -->
+		<!-- Page Content -->
+		<div class="content">
 
-	<!-- jQuery -->
-	<script src="${js}/jquery.js"></script>
+			<!--Home Page Content -->
+			<c:if test="${userClickHome == true}">
+				<%@include file="home.jsp"%>
+			</c:if>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="${js}/bootstrap.min.js"></script>
-	
-	<!-- Self coded javascript file -->
-	<script src="${js}/myapp.js"></script>
+			<!-- About Page Content load here is about click -->
+			<c:if test="${userClickAbout == true}">
+				<%@include file="about.jsp"%>
+			</c:if>
+
+			<!-- Product list click here if product menu click -->
+			<c:if test="${userClickProductList == true}">
+				<%@include file="productsList.jsp"%>
+			</c:if>
+
+			<!-- Contact Page load here if contact menu is clicked  -->
+			<c:if test="${userClickContact == true}">
+				<%@include file="contact.jsp"%>
+			</c:if>
+
+		</div>
+
+		<!-- Footer comes here -->
+		<%@include file="./shared/footer.jsp"%>
+
+		<!-- /.container -->
+
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- Self coded javascript file -->
+		<script src="${js}/myapp.js"></script>
+	</div>
 </body>
-
 </html>
