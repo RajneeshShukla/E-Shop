@@ -6,4 +6,5 @@ import com.rajneesh.eshopbackend.dto.Category;
 
 public interface CategoryDAO {
 	List<Category> getCategoriesList();
+	Category get(int id);
 }
