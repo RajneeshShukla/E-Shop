@@ -37,34 +37,30 @@
 
 	<div class="wrapper">
 		<!-- Navigation -->
-		<%@include file="./shared/navbar.jsp" %>
+		<%@include file="./shared/navbar.jsp"%>
 
 		<!-- Page Content -->
 		<div class="content">
 
 			<!--Home Page Content -->
 			<c:if test="${userClickHome == true}">
-				<%@include file="home.jsp" %>
+				<%@include file="home.jsp"%>
 			</c:if>
 
 			<!-- About Page Content load here is about click -->
 			<c:if test="${userClickAbout == true}">
-				<%@include file="about.jsp" %>
-			</c:if>
-
-			<!-- Product list click here if product menu click -->
-			<c:if test="${userClickProductList == true}">
-				<%@include file="productsList.jsp" %>
+				<%@include file="about.jsp"%>
 			</c:if>
 
 			<!-- Contact Page load here if contact menu is clicked  -->
 			<c:if test="${userClickContact == true}">
-				<%@include file="contact.jsp" %>
+				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
 			<!-- Contact Page load here if contact menu is clicked  -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
-				<%@include file="listProduct.jsp" %>
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@include file="listProduct.jsp"%>
 			</c:if>
 
 		</div>
