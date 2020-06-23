@@ -23,16 +23,15 @@ public class HibernateConfig {
 	private final static String DATABASE_USERNAME = "sa";
 	private final static String DATABASE_PASSWORD = "";
 
-
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		
+
 		dataSource.setDriverClassName(DATABASE_DRIVER);
 		dataSource.setUrl(DATABASE_URL);
 		dataSource.setUsername(DATABASE_USERNAME);
 		dataSource.setPassword(DATABASE_PASSWORD);
-		
+
 		return dataSource;
 	}
 
@@ -41,22 +40,22 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(getHibernateProperties());
 		builder.scanPackages("com.rajneesh.eshopbackend.dto");
-		
+
 		return builder.buildSessionFactory();
 	}
 
 	private Properties getHibernateProperties() {
 
-		Properties properties =  new Properties();
+		Properties properties = new Properties();
 		properties.put("hibernate.dialect", DATABASE_DILECT);
 		properties.put("hibernate.show_sql", true);
 		properties.put("hibernate.format_sql", true);
 		return properties;
 	}
-	
+
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-		
+
 		return transactionManager;
 	}
 }
