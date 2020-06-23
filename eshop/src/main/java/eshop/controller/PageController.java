@@ -67,7 +67,7 @@ public class PageController {
 		
 		// Category DAO to fetch single category 
 		Category category = null;
-		category = categoryDAO.get(id);
+		category = categoryDAO.getCategory(id);
 		mv.addObject("title", category.getName());
 		
 		mv.addObject("category", category);
