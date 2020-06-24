@@ -11,6 +11,8 @@ $(function() {
 	case 'Contact Us':
 		$('#contact').addClass('active');
 		break;
+	case 'Home':
+		break;
 	default:
 		$('#listProducts').addClass('active');
 		$('#a_'+menu).addClass('active');
