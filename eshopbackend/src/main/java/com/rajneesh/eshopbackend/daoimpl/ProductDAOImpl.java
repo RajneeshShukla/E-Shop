@@ -83,7 +83,7 @@ public class ProductDAOImpl implements ProductDAO{
 				.getCurrentSession()
 				.createQuery(query, Product.class)
 				.setParameter("active", true)
-				.setParameter(categoryId, categoryId)
+				.setParameter("categoryId", categoryId)
 				.getResultList();
 	}
 

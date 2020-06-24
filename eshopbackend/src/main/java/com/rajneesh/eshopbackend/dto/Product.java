@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "product")
 public class Product {
 	@Id
@@ -24,18 +26,25 @@ public class Product {
 	private String brand;
 	
 	@Column(name = "description")
+	@JsonIgnore
 	private String description;
+	
+	@Column(name = "quantity")
+	private String quantity;
 	
 	@Column(name = "unit_price")
 	private double unitPrice;
 	
 	@Column(name = "is_active")
+	@JsonIgnore
 	private boolean active;
 	
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	
 	@Column(name = "supplier_id")
+	@JsonIgnore
 	private int supplierId;
 	
 	@Column(name = "purchases")
@@ -137,10 +146,20 @@ public class Product {
 		this.views = views;
 	}
 
+	public String getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
-				+ description + ", unitPrice=" + unitPrice + ", active=" + active + ", categoryId=" + categoryId
-				+ ", supplierId=" + supplierId + ", purchases=" + purchases + ", views=" + views + "]";
-	}	
+				+ description + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", active=" + active
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views="
+				+ views + "]";
+	}
+
 }
