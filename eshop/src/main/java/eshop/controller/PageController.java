@@ -1,5 +1,7 @@
 package eshop.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +13,12 @@ import com.rajneesh.eshopbackend.dao.ProductDAO;
 import com.rajneesh.eshopbackend.dto.Category;
 import com.rajneesh.eshopbackend.dto.Product;
 
+
 @Controller
 public class PageController {
-
+	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -26,6 +31,9 @@ public class PageController {
 		mv.addObject("title", "Home");
 		mv.addObject("userClickHome", "true");
 		mv.addObject("categories", categoryDAO.getCategoriesList());
+		
+		logger.info("Inside PageController index method - INFO");
+		logger.debug("Inside PageController index method - DEBUG");
 		return mv;
 	}
 
