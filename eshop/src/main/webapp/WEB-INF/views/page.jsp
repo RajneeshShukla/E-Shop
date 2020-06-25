@@ -78,6 +78,12 @@
 				test="${errorPageClick == true}">
 				<%@include file="error.jsp"%>
 			</c:if>
+			
+			<!-- Show Manage Product page-->
+			<c:if
+				test="${userClickManageProducts == true}">
+				<%@include file="manageProduct.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Footer comes here -->
