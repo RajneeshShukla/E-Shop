@@ -1,4 +1,4 @@
-package eshop.controller;
+package com.rajneesh.eshop.controller;
 
 import java.util.List;
 

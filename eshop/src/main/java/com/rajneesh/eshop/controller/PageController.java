@@ -1,4 +1,4 @@
-package eshop.controller;
+package com.rajneesh.eshop.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
