@@ -3,6 +3,24 @@
 <div class="container">
 
 	<div class="row">
+		<c:if test="${not empty alertMsg }">
+			<div class="col-xs-12">
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					${alertMsg}
+				</div>
+			</div>
+		</c:if>
+		
+		<c:if test="${not empty errorMsg }">
+			<div class="col-xs-12">
+				<div class="alert  alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					${errorMsg}
+				</div>
+			</div>
+		</c:if>
+
 		<div class="col-md-offset-2 col-md-8">
 			<div class="panel panel-primary">
 
@@ -12,7 +30,8 @@
 
 				<div class="panel-body">
 					<!-- FORM ELEMENTS -->
-					<sf:form action="" class="form-horizontal" modelAttribute="product">
+					<sf:form class="form-horizontal" modelAttribute="product"
+						action="${contextRoot}/manage/products" method="POST">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name"> Product
@@ -20,7 +39,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="name"
 									placeholder="Enter Product Name" class="form-control" />
-								<em class="help-block">Please enter product Name!</em>
+								<sf:errors path ="name" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -30,7 +49,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="brand"
 									placeholder="Enter Brand Name" class="form-control" />
-								<em class="help-block">Please enter brand Name!</em>
+								<sf:errors path ="brand" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -40,7 +59,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Write Product Description" class="form-control"></sf:textarea>
-								<em class="help-block">Please write Product Description!</em>
+								<sf:errors path ="description" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -50,7 +69,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice"
 									placeholder="Enter Price" class="form-control" />
-								<em class="help-block">Please enter brand Name!</em>
+								<sf:errors path ="unitPrice" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -60,7 +79,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="quantity"
 									placeholder="Enter Product Quantity" class="form-control" />
-								<em class="help-block">Please enter Product Quantity!</em>
+								<sf:errors path ="quantity" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -68,8 +87,9 @@
 							<label class="control-label col-md-4" for="name">Select
 								Category</label>
 							<div class="col-md-8">
-								<sf:select class="form-control" id="categoryId" path="categoryId"
-									items="${categories}" itemLabel="name" itemValue="id" />
+								<sf:select class="form-control" id="categoryId"
+									path="categoryId" items="${categories}" itemLabel="name"
+									itemValue="id" />
 							</div>
 						</div>
 
