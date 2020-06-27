@@ -7,9 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.swing.plaf.multi.MultiPanelUI;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -60,6 +63,9 @@ public class Product {
 	@Column(name= "views")
 	private int views;
 
+	@Transient
+	private MultipartFile file;
+	
 	// Default const
 	public Product() {
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
@@ -159,6 +165,16 @@ public class Product {
 
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
+	}
+	
+	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	@Override

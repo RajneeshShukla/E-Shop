@@ -2,10 +2,12 @@ package com.rajneesh.eshop.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rajneesh.eshop.utils.FileUploadUtility;
 import com.rajneesh.eshopbackend.dao.CategoryDAO;
 import com.rajneesh.eshopbackend.dao.ProductDAO;
 import com.rajneesh.eshopbackend.dto.Category;
@@ -60,7 +63,7 @@ public class ManagementController {
 	 * Save Product submission
 	 */
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product product, BindingResult result, Model model, HttpServletRequest req) {
 		if(result.hasErrors()) {
 			model.addAttribute("title", "Manage Products");
 			model.addAttribute("userClickManageProducts",  true);
@@ -70,6 +73,11 @@ public class ManagementController {
 		
 		logger.info(product.toString());
 		productDAO.addProduct(product);
+		
+		if(!product.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(req, product.getFile(), product.getCode());
+		}
+		
 		return "redirect:/manage/products?operation=product";
 	}
 }

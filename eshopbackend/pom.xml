@@ -38,6 +38,12 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 		<!-- H2 database -->
 		<dependency>
 			<groupId>com.h2database</groupId>

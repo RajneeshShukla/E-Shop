@@ -45,7 +45,9 @@ $(function() {
 							{
 								data : 'code',
 								mRender : function(data, type, row) {
-									return '<img src="https://cdn.pixabay.com/photo/2016/03/02/07/36/abstract-1231889_960_720.jpg"/>';
+									return '<img src="' + window.contextRoot
+									+ '/resources/images/' + data
+									+ '.jpg" class="dataTableImg"/>'
 								}
 							},
 							{

@@ -17,7 +17,7 @@
 		<!-- Product Image -->
 		<div class="col-xs-12 col-sm-4">
 			<div class="thumbnail">
-				<img src="https://cdn.pixabay.com/photo/2016/03/02/07/36/abstract-1231889_960_720.jpg" class="img img-responsive" />
+				<img src="${images}/${product.code}.jpg" class="img img-responsive" />
 			</div>
 		</div>
 
