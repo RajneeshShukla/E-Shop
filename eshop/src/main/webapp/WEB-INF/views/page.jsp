@@ -103,6 +103,8 @@
 		<!-- Data Bootstap JS -->
 		<script src="${js}/dataTables.bootstrap4.js"></script>
 
+		<!-- BootBox JS -->
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- Self coded javascript file -->
 		<script src="${js}/myapp.js"></script>

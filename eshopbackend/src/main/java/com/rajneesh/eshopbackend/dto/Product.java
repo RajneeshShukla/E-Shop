@@ -38,6 +38,7 @@ public class Product {
 	@JsonIgnore
 	private String description;
 	
+	@NotBlank(message = "Please enter prodcut quantity")
 	@Column(name = "quantity")
 	private String quantity;
 	
@@ -46,7 +47,6 @@ public class Product {
 	private double unitPrice;
 	
 	@Column(name = "is_active")
-	@JsonIgnore
 	private boolean active;
 	
 	@Column(name = "category_id")

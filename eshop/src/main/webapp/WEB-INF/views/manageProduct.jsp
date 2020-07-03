@@ -11,7 +11,7 @@
 				</div>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${not empty errorMsg }">
 			<div class="col-xs-12">
 				<div class="alert  alert-danger alert-dismissible">
@@ -31,7 +31,8 @@
 				<div class="panel-body">
 					<!-- FORM ELEMENTS -->
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
+						action="${contextRoot}/manage/products" method="POST"
+						enctype="multipart/form-data">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name"> Product
@@ -39,7 +40,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="name"
 									placeholder="Enter Product Name" class="form-control" />
-								<sf:errors path ="name" element="em" cssClass="help-block" />
+								<sf:errors path="name" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -49,7 +50,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="brand"
 									placeholder="Enter Brand Name" class="form-control" />
-								<sf:errors path ="brand" element="em" cssClass="help-block" />
+								<sf:errors path="brand" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -59,7 +60,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Write Product Description" class="form-control"></sf:textarea>
-								<sf:errors path ="description" element="em" cssClass="help-block" />
+								<sf:errors path="description" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -69,7 +70,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice"
 									placeholder="Enter Price" class="form-control" />
-								<sf:errors path ="unitPrice" element="em" cssClass="help-block" />
+								<sf:errors path="unitPrice" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -79,16 +80,17 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="quantity"
 									placeholder="Enter Product Quantity" class="form-control" />
-								<sf:errors path ="quantity" element="em" cssClass="help-block" />
+								<sf:errors path="quantity" element="em" cssClass="help-block" />
 							</div>
 						</div>
-						
-						
+
+
 						<div class="form-group">
-							<label class="control-label col-md-4" for="name">Upload Image</label>
+							<label class="control-label col-md-4" for="name">Upload
+								Image</label>
 							<div class="col-md-8">
 								<sf:input type="file" path="file" class="form-control" />
-								<sf:errors path ="quantity" element="em" cssClass="help-block" />
+								<sf:errors path="file" element="em" cssClass="help-block" />
 							</div>
 						</div>
 
@@ -121,4 +123,47 @@
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Available Products</h3>
+			<hr />
+		</div>
+
+		<div class="col-xs-12">
+			<div style="overflow: auto;">
+				<table id="adminProductsTable"
+					class="table table-condensed table-bordered">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Qty. Avail</th>
+							<th>Unit Price</th>
+							<th>Activate</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+
+
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Qty. Avail</th>
+							<th>Unit Price</th>
+							<th>Activate</th>
+							<th>Edit</th>
+						</tr>
+					</tfoot>
+
+
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
